@@ -15,7 +15,7 @@
   when: need_bootstrap | failed
 
 - name: Copy get-pip.py
-  copy: src=../files/get-pip.py dest=~/get-pip.py
+  copy: "src={{ role_path }}/files/get-pip.py dest=~/get-pip.py"
   when: need_pip | failed
 
 - name: Install pip
