@@ -2,9 +2,16 @@
 dependencies: []
 
 galaxy_info:
-  author: defunctzombie
-  description: "bootstrap coreos hosts to run ansible"
+  author: troyfontaine
+  description: "Bootstrap Container Linux hosts to run ansible"
   license: "MIT"
-  min_ansible_version: 1.4
-  categories:
+  min_ansible_version: 1.8
+    platforms:
+  - name: EL
+    versions:
+    - all
+  galaxy_tags:
+    - troyfontaine
+    - coreos
+    - bootstrap
     - system
