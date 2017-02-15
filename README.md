@@ -1,16 +1,16 @@
-# coreos-bootstrap
+# container-linux-bootstrap
 
-In order to effectively run ansible, the target machine needs to have a python interpreter. Coreos machines are minimal and do not ship with any version of python. To get around this limitation we can install [pypy](http://pypy.org/), a lightweight python interpreter. The coreos-bootstrap role will install pypy for us and we will update our inventory file to use the installed python interpreter.
+In order to effectively run ansible, the target machine needs to have a python interpreter. Container Linux machines are minimal and do not ship with any version of python. To get around this limitation we can install [pypy](http://pypy.org/), a lightweight python interpreter. The coreos-bootstrap role will install pypy for us and we will update our inventory file to use the installed python interpreter.
 
 # install
 
 ```
-ansible-galaxy install defunctzombie.coreos-bootstrap
+ansible-galaxy install troyfontaine.container-linux-bootstrap
 ```
 
 # Configure your project
 
-Unlike a typical role, you need to configure Ansible to use an alternative python interpreter for coreos hosts. This can be done by adding a `coreos` group to your inventory file and setting the group's vars to use the new python interpreter. This way, you can use ansible to manage CoreOS and non-CoreOS hosts. Simply put every host that has CoreOS into the `coreos` inventory group and it will automatically use the specified python interpreter.
+Unlike a typical role, you need to configure Ansible to use an alternative python interpreter for Container Linux hosts. This can be done by adding a `coreos` group to your inventory file and setting the group's vars to use the new python interpreter. This way, you can use ansible to manage CoreOS and non-CoreOS hosts. Simply put every host that has Container Linux into the `coreos` inventory group and it will automatically use the specified python interpreter.
 ```
 [coreos]
 host-01
@@ -21,7 +21,7 @@ ansible_ssh_user=core
 ansible_python_interpreter=/home/core/bin/python
 ```
 
-This will configure ansible to use the python interpreter at `/home/core/bin/python` which will be created by the coreos-bootstrap role.
+This will configure ansible to use the python interpreter at `/home/core/bin/python` which will be created by the container-linux-bootstrap role.
 
 ## Bootstrap Playbook
 
@@ -31,7 +31,7 @@ Now you can simply add the following to your playbook file and include it in you
 - hosts: coreos
   gather_facts: False
   roles:
-    - defunctzombie.coreos-bootstrap
+    - troyfontaine.container-linux-bootstrap
 ```
 
 Make sure that `gather_facts` is set to false, otherwise ansible will try to first gather system facts using python which is not yet installed!
