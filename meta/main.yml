@@ -1,15 +1,16 @@
----
-dependencies: []
-
 galaxy_info:
-  author: troyfontaine
-  description: "Bootstrap Container Linux hosts to run ansible"
-  license: "MIT"
+  author: Troy Fontaine
+  description: Role to bootstrap Container Linux (Formerly CoreOS)
+
+  license: MIT
+
   min_ansible_version: 1.8
-    platforms:
-  - name: EL
+
+  platforms:
+  - name: GenericLinux
     versions:
-    - all
+    - any
+    
   galaxy_tags:
     - troyfontaine
     - coreos
