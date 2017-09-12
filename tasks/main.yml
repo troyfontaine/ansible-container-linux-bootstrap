@@ -12,7 +12,6 @@
   register: need_pip
   ignore_errors: True
   changed_when: false
-  when: need_bootstrap | failed
 
 - name: Copy get-pip.py
   copy: "src={{ role_path }}/files/get-pip.py dest=~/get-pip.py"
